@@ -33,7 +33,7 @@ public class ProfilePage extends BasePage {
     public ProfilePage deleteBook() {
         click(deleteRecordBtn);
         click(deleteBookBtn);
-        acceptAlert(10);
+        acceptAlert(20);
         return this;
     }
 }

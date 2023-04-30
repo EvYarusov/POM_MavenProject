@@ -53,8 +53,6 @@ public abstract class BasePage {
     public void acceptAlert(int time) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        pause(2000);
-        driver.switchTo().alert();
         alert.accept();
     }
 
