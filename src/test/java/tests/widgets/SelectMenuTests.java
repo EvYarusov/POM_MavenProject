@@ -16,6 +16,14 @@ public class SelectMenuTests extends TestBase {
     }
 
     // ДЗ два первых селекта
+    @Test
+    public void selectValueTest() {
+        new SelectMenuPage(driver).selectValue("Group 1, option 2");
+    }
+    @Test
+    public void selectOneTest() {
+        new SelectMenuPage(driver).selectOne("Prof.");
+    }
 
     @Test
     public void selectOldStyleTest() {

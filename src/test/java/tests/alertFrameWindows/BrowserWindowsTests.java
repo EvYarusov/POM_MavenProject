@@ -23,4 +23,18 @@ public class BrowserWindowsTests extends TestBase {
     }
 
     // ДЗ вторая и третья кнопка
+
+    @Test
+    public void newWindowTest() {
+        new BrowserWindowsPage(driver)
+                .switchToNewWindow(1)
+                .assertNewTabByMessage("This is a sample page");
+    }
+
+    @Test(enabled = false)
+    public void newWindowWithMessageTest() {
+        new BrowserWindowsPage(driver)
+                .switchToNewWindowWithMessage(1)
+                .assertNewMessageWindowByMessage("Knowledge increases by sharing but not by saving");
+    }
 }

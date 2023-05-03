@@ -16,11 +16,10 @@ public class BrowserWindowsPage extends BasePage {
 
     @FindBy(id = "tabButton")
     WebElement tabButton;
-    public BrowserWindowsPage switchToNewTab(int indexOfTab) {
+    public BrowserWindowsPage switchToNewTab(int index) {
         click(tabButton);
         List<String> tabs = new ArrayList<>(driver.getWindowHandles());
-
-        driver.switchTo().window(tabs.get(indexOfTab));
+        driver.switchTo().window(tabs.get(index));
         return this;
     }
 
@@ -28,6 +27,31 @@ public class BrowserWindowsPage extends BasePage {
     WebElement sampleHeading;
     public BrowserWindowsPage assertNewTabByMessage(String text) {
         Assert.assertTrue(shouldHaveText(sampleHeading, text, 15));
+        return this;
+    }
+
+    @FindBy(id = "windowButton")
+    WebElement windowButton;
+    public BrowserWindowsPage switchToNewWindow(int index) {
+        click(windowButton);
+        List<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(index));
+        return this;
+    }
+
+    @FindBy(id = "messageWindowButton")
+    WebElement messageWindowButton;
+    public BrowserWindowsPage switchToNewWindowWithMessage(int index) {
+        click(messageWindowButton);
+        List<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(index));
+        return this;
+    }
+    @FindBy(xpath = "//body")
+    WebElement body;
+    public BrowserWindowsPage assertNewMessageWindowByMessage(String text) {
+        pause(2000);
+        Assert.assertTrue(body.getText().contains(text));
         return this;
     }
 }

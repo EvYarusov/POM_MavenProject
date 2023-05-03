@@ -14,7 +14,22 @@ public class SelectMenuPage extends BasePage {
     public SelectMenuPage(WebDriver driver) {
         super(driver);
     }
-
+    @FindBy(id = "withOptGroup")
+    WebElement selectValueGroup;
+    public SelectMenuPage selectValue(String option) {
+        click(selectValueGroup);
+        WebElement element = driver.findElement(By.xpath(String.format("//div[text() = '%s']", option)));
+        click(element);
+        return this;
+    }
+    @FindBy(id = "selectOne")
+    WebElement selectOneGroup;
+    public SelectMenuPage selectOne(String option) {
+        click(selectOneGroup);
+        WebElement element = driver.findElement(By.xpath(String.format("//div[text() = '%s']", option)));
+        click(element);
+        return this;
+    }
     @FindBy(id = "oldSelectMenu")
     WebElement oldSelectMenu;
 
