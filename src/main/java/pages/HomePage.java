@@ -38,4 +38,11 @@ public class HomePage extends BasePage {
         click(interactions);
         return new SidePanel(driver);
     }
+
+    @FindBy(xpath = "//h5[.='Elements']")
+    WebElement elements;
+    public SidePanel getElements() {
+        clickWithJSExecutor(elements, 0, 200);
+        return new SidePanel(driver);
+    }
 }

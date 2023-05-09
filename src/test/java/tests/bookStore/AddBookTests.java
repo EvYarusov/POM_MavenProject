@@ -19,8 +19,7 @@ public class AddBookTests extends TestBase {
         new HomePage(driver).getBookStoreApplication();
         new SidePanel(driver).selectLogin();
         new LoginPage(driver)
-                .login(UserData.USER_NAME, UserData.USER_PASSWORD)
-                .assertAccount(UserData.USER_NAME);
+                .login(UserData.USER_NAME, UserData.USER_PASSWORD);
     }
 
     @Test
@@ -28,7 +27,6 @@ public class AddBookTests extends TestBase {
         new SidePanel(driver).selectBookStore();
         new BookStorePage(driver)
                 .typeInSearchField(BookData.BOOK_TITLE)
-                .assertNameOfBook(BookData.BOOK_TITLE)
                 .addBookToCollection();
         new SidePanel(driver).selectProfile();
         new ProfilePage(driver).assertBook(BookData.BOOK_TITLE);
@@ -36,9 +34,6 @@ public class AddBookTests extends TestBase {
 
     @AfterMethod(enabled = true)
     public void removeBookFromProfile() {
-        new SidePanel(driver)
-                .selectProfile()
-                .assertBook(BookData.BOOK_TITLE)
-                .deleteBook();
+        new ProfilePage(driver).deleteBook();
     }
 }

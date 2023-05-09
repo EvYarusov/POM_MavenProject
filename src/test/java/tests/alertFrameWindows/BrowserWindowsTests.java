@@ -31,7 +31,7 @@ public class BrowserWindowsTests extends TestBase {
                 .assertNewTabByMessage("This is a sample page");
     }
 
-    @Test(enabled = false)
+    @Test
     public void newWindowWithMessageTest() {
         new BrowserWindowsPage(driver)
                 .switchToNewWindowWithMessage(1)
